@@ -1,0 +1,133 @@
+% LaTeX master Datei(en) zusammengestellt von Falk-Jonatan Strube zur Nutzung an der Hochschule für Technik und Wirtschaft Dresden: https://github.com/genericFJS/htw
+\documentclass[]{scrreprt}
+\input{htwcd/htwcd_content.sty}
+
+\geometry{top=30mm,bottom=30mm, 
+	     %headsep=15mm, %footskip=15mm
+	    inner=40mm,outer=20mm,}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{scrhack}
+\usepackage[para]{footmisc}
+\usepackage{xurl}
+\usepackage{datetime}
+	
+\linespread{1.25}
+
+\usepackage[bookmarks,bookmarksopen=false,
+            colorlinks=true,linkcolor=black,
+            citecolor=black,urlcolor=black,]
+            {hyperref}
+
+
+\faculty{Fakultät Informatik/Mathematik}
+\chair{Professur für Betriebssysteme}
+\title{Ermittlung von Cacheeigenschaften für ARM-Prozessorkerne}
+\professor{Prof. Dr.-Ing. habil. Dirk Müller}
+\referee{Prof. Dr.-Ing. Robert Baumgartl}
+\thesis{\linespread{}Bachelor-Arbeit}
+\graduation[B. Sc.]{Bachelor of Science}
+
+%\subtitle{Praxisprojekt}
+%\subject{Typisierung Subject}
+
+\author{Felix Müller}
+%\authormore{} %\newdate{geburt}{19}{08}{1997} %\dateofbirth{\displaydate{geburt}} %\placeofbirth{}
+\course{Allgemeine Informatik}
+%\discipline{Softwareentwicklung} %\matriculationnumber{}
+\matriculationyear{2018}
+
+
+
+
+\newdate{abgabe}{15}{09}{2018}
+\date{\today}
+
+% Literatur/Quellen und Akronyme/Glossar:
+\usepackage[
+backend=biber,
+sortlocale=de_DE, 
+bibencoding=utf8,
+style=authoryear, 
+citestyle=authoryear-ibid,
+%doi=false,
+%isbn=false,
+%url=false
+]{biblatex}	% BibTeX
+\bibliography{Bibliography}
+
+\usepackage[acronym,nonumberlist]{glossaries}
+\makeglossaries
+\input{Glossar.tex}
+
+\newcommand{\tableref}[1]{\autoref{#1} (\autopageref{#1})} % Beispielhafter neuer Befehl für Zitierweise (damit sie einheitlich ist)
+
+\pagenumbering{roman}
+
+\begin{document}
+\maketitle % Deckblatt
+
+% Inhaltsverzeichnis
+\setcounter{page}{1}
+\tableofcontents
+
+% Glossar
+\printglossary[type=main]
+\addcontentsline{toc}{chapter}{Glossar}
+% Abbildungsverzeichnis
+\listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+% Tabellenverzeichnis
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+
+%Textteil
+\clearpage
+\pagenumbering{arabic}
+
+%\setcounter{chapter}{-1}
+\chapter{Einleitung}
+
+%\begin{figure}[h!]
+%	\centering
+%    \includegraphics[angle=270,width=1\textwidth]{GraalIntern.pdf}
+%	\caption{Funktionsweise des Programms \texttt{native-image} \scriptsize{[\Cite{niIntern}]}}
+%\end{figure}
+
+
+% ==============================================
+% Literaturverzeichnis
+% ==============================================
+%\nocite{*}
+\printbibliography
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+
+% ==============================================
+% Anhang
+% ==============================================
+\appendix
+\chapter*{Anlagen}
+\addcontentsline{toc}{chapter}{Anlagen}
+\setcounter{chapter}{1}  
+
+
+% Selbstständigkeitserklärung
+\chapter*{Selbstständigkeitserklärung}
+\addcontentsline{toc}{chapter}{Selbstständigkeitserklärung}
+\thispagestyle{empty}
+\input{Selbststaendigkeitserklaerung.tex}
+
+% Endblatt (weiß)
+\clearpage
+\thispagestyle{empty}
+\begin{center}
+\vfill
+\phantom{© \makeatletter\@author\makeatother}
+\end{center}
+
+\end{document}
