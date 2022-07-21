@@ -1,0 +1,6 @@
+#! /bin/bash
+
+sudo rmmod lkm_tau
+make
+sudo insmod lkm_tau.ko
+dmesg
